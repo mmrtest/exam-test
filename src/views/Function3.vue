@@ -12,9 +12,9 @@
         <br />
         Test Case
         <br />
-        <br />
-        <div v-for="(test, index) in testcase" :key="`testcase-${index}`">
-          {{ test }} // {{ findMax(test) }} <br />
+
+        <div v-for="(test, index) in answer" :key="`pokemon-${index}`">
+          {{ testcase[index] }} // {{ test }} <br />
         </div>
         <br />
       </v-card>
@@ -38,7 +38,13 @@ export default {
         [1, 5, 101, 2, 5, 10],
         [10, 10, 9],
       ],
+      answer: [],
     };
+  },
+  mounted() {
+    for (var i = 0; i < this.testcase.length; i++) {
+      this.answer.push(this.findMax(this.testcase[i]));
+    }
   },
   methods: {
     findMax(data) {
